@@ -1,74 +1,88 @@
-namespace Enjoying;
-
-public class OOPFieldConstants
+namespace Enjoying
 {
-    /*
-     * Introduction
-     * OOP Definition
-     * Class vs Object
-     * Access Modifiers
-     * Field Constant
-     */
-
-    /*
-     * Company is looking for application to do salary slip calculation for
-     * employee based on daily bases following the rule total Earnings is
-     * equal to Hours logged times his wage. fixed tax is applied 3% on all
-     * user need to enter input and salary will be shown accordingly 
-     */
-
-    #region Old school approach
-
-    public void First()
+    public class OOPFieldConstants
     {
-        const double TAX = 0.03;
+        /*
+         * Topics Covered:
+         * - Introduction to OOP
+         * - OOP Definition
+         * - Class vs Object
+         * - Access Modifiers
+         * - Field & Constant Declaration
+         */
 
-        Console.WriteLine("First Name : ");
-        var fName = Console.ReadLine();
+        /*
+         * Problem Statement:
+         * A company needs a salary slip calculator.
+         * The salary is calculated daily as:
+         *      Net Salary = Logged Hours * Wage - 3% Tax
+         * 
+         * Users input employee info and the application calculates the salary.
+         */
 
-        Console.WriteLine("Last Name : ");
-        var lName = Console.ReadLine();
+        #region Old School Approach (Procedural Style)
 
-        Console.Write("Wage: ");
-        var wage = Convert.ToDouble(Console.ReadLine());
+        public void First()
+        {
+            const double TAX = 0.03;
 
-        Console.Write("logged Hours: ");
-        var loggedHours = Convert.ToDouble(Console.ReadLine());
+            Console.Write("First Name: ");
+            var fName = Console.ReadLine();
 
-        var netSalary = wage * loggedHours - (wage * loggedHours * TAX);
+            Console.Write("Last Name: ");
+            var lName = Console.ReadLine();
 
-        Console.WriteLine($"First Name: {fName}");
-        Console.WriteLine($"Last Name: {lName}");
-        Console.WriteLine($"Wage: {wage}");
-        Console.WriteLine($"Logged Hours: {loggedHours}");
-        Console.WriteLine($"Logged Hours: {netSalary}");
+            Console.Write("Wage: ");
+            var wage = Convert.ToDouble(Console.ReadLine());
 
-        // so we have a problem in here everytime we want to assign new employee we
-        // need to recode all this again with new variables 
+            Console.Write("Logged Hours: ");
+            var loggedHours = Convert.ToDouble(Console.ReadLine());
+
+            // Net salary calculation
+            var gross = wage * loggedHours;
+            var taxAmount = gross * TAX;
+            var netSalary = gross - taxAmount;
+
+            Console.WriteLine($"\n--- Salary Slip ---");
+            Console.WriteLine($"First Name   : {fName}");
+            Console.WriteLine($"Last Name    : {lName}");
+            Console.WriteLine($"Wage         : {wage}");
+            Console.WriteLine($"Logged Hours : {loggedHours}");
+            Console.WriteLine($"Net Salary   : {netSalary}");
+
+            /*
+             * Problem with this approach:
+             * Every time we want to calculate salary for a new employee,
+             * we must duplicate the entire block of logic.
+             * This violates the DRY principle (Don't Repeat Yourself).
+             */
+        }
+
+        #endregion
     }
 
-    #endregion
+    // Chapter 2: Object-Oriented Programming (OOP) Approach
 
-}
-// chapter 2 of the story : OOP
+    /*
+     * Class Syntax:
+     * <AccessModifier> class <ClassName>
+     * {
+     *     // fields, properties, methods, etc.
+     * }
+     */
 
-// <ClassModifier> -> public, internal(default), 
-/*
- * <ClassModifier> -> class <ClassName>
-  {
-        class block
-  }
- */
-public class Employee
-{
-    // <AccessModifier> public, private, protected
-    // Constant -> <AccessModifier> const <DataType> <ConstantName> = <Value>;
-    public const double TAX = 0.03;
+    public class Employee
+    {
+        // Constant Declaration
+        // A fixed value that cannot be changed during program execution.
+        public const double TAX = 0.03;
 
-    // <AccessModifier> public, private, protected
-    // Fields -> <AccessModifier> <DataType> <FieldName> = <InitialValue>;
-    public string FName;
-    public string LName;
-    public double Wage;
-    public double LoggedHours;
+        // Fields: used to store data about the employee (state)
+        public string FName;        // First name of the employee
+        public string LName;        // Last name of the employee
+        public double Wage;         // Hourly wage
+        public double LoggedHours;  // Hours worked
+
+        // Later you can add a method to calculate salary in this class for OOP encapsulation.
+    }
 }
