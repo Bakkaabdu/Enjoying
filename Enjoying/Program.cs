@@ -59,5 +59,14 @@ public class Program
         //}
 
         #endregion
+
+        #region From Methods Class
+        // Make object of the class
+        Methods M = new Methods();
+
+        // Call the method
+        M.DoSomething();
+
+        #endregion
     }
 }
