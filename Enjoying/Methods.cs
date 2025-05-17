@@ -52,17 +52,17 @@
         }
 
         // Example 4: Using `out` keyword
-        public void Age(out int age)
-        {
-            age = 30;
+        //public void Age(out int age)
+        //{
+        //    age = 30;
 
-            /*
-             * The `out` keyword also passes the variable by reference.
-             * However, the variable must be assigned a value within the method.
-             * Use case: when you want the method to initialize or output a value.
-             * To call this method: Age(out age);
-             */
-        }
+        //    /*
+        //     * The `out` keyword also passes the variable by reference.
+        //     * However, the variable must be assigned a value within the method.
+        //     * Use case: when you want the method to initialize or output a value.
+        //     * To call this method: Age(out age);
+        //     */
+        //}
 
         // --------------------------------------------
         // Method Signatures:

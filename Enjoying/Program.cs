@@ -67,6 +67,22 @@ public class Program
         // Call the method
         M.DoSomething();
 
+        Add add = new Add();
+        int a;
+        add.Count(out a);
+
+        Console.Write(a);
+
         #endregion
+    }
+
+
+    public class Add
+    {
+        public void Count(out int a)
+        {
+            a = 10;
+            a = a + 10;
+        }
     }
 }
